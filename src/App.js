@@ -1,23 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './style.css'
+import SocialDashboard from './SocialDashboard';
+import { Redirect, Route } from 'react-router-dom';
+import { useState } from 'react';
+import ShowUser from './ShowUser';
+
 
 function App() {
+
+  const [status, setStatus] = useState(false)
+
+  const handleLogin = (value) => {
+    setStatus(value)
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='container'>
+      <Route path="/" exact={true} render={(props) => {
+        return (
+          <SocialDashboard
+            {...props}
+            handleLogin={handleLogin}
+            status={status}
+          />
+        )
+      }} />
+      <Route path="/show" exact={true} render={(props) => {
+        return (
+          status ? <ShowUser
+            {...props}
+            handleLogin={handleLogin}
+            status={status}
+          /> : <Redirect to='/' />
+        )
+      }} />
     </div>
   );
 }

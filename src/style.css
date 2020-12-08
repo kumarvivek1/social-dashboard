@@ -1,0 +1,42 @@
+.dashboard{
+    width: 40%;
+    margin: auto;
+    vertical-align: middle;
+    margin-top: 10%;
+    background-color: rgba(167, 60, 165, 0.143);
+    padding: 8%;
+    border: 1px solid gray;
+    border-radius: 10px;
+}
+body {
+    background-color: rgb(168, 213, 214);
+}
+.container{
+    height: 100%;
+    width: 100%;
+}
+#button{
+    margin-left: 50%;
+    
+}
+.userinfo{
+    width:70%;
+    margin: auto;
+}
+#span{
+    text-align: center;
+}
+.row{
+    border: 1px solid black;
+    margin: 10px;
+}
+#right{
+    text-align: right;
+}
+#left{
+    text-align: left;
+}
+p{
+    margin-left: 10px;
+    
+}
